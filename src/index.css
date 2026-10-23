@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0b0e14;
+  --bg-secondary: #161b22;
+  --bg-card: #161b22;
+  --bg-card-hover: #1c2129;
+  --bg-elevated: #1f242c;
+  --border-subtle: #30363d;
+  --border-subtle-dark: #21262d;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-muted: #8b949e;
+  --text-dim: #6e7681;
+  --accent-cyber: #00ff66;
+  --accent-cyber-glow: rgba(0, 255, 102, 0.22);
+  --accent-cyber-subtle: rgba(0, 255, 102, 0.08);
+  --accent-cyber-border: rgba(0, 255, 102, 0.35);
+}
+
+[data-palette="emerald"] {
+  --accent-cyber: #00ff66;
+  --accent-cyber-glow: rgba(0, 255, 102, 0.22);
+  --accent-cyber-subtle: rgba(0, 255, 102, 0.08);
+  --accent-cyber-border: rgba(0, 255, 102, 0.35);
+}
+
+[data-palette="gold"] {
+  --accent-cyber: #f59e0b;
+  --accent-cyber-glow: rgba(245, 158, 11, 0.22);
+  --accent-cyber-subtle: rgba(245, 158, 11, 0.08);
+  --accent-cyber-border: rgba(245, 158, 11, 0.35);
+}
+
+[data-palette="sapphire"] {
+  --accent-cyber: #00e5ff;
+  --accent-cyber-glow: rgba(0, 229, 255, 0.22);
+  --accent-cyber-subtle: rgba(0, 229, 255, 0.08);
+  --accent-cyber-border: rgba(0, 229, 255, 0.35);
+}
+
+[data-palette="crimson"] {
+  --accent-cyber: #ff2a5f;
+  --accent-cyber-glow: rgba(255, 42, 95, 0.22);
+  --accent-cyber-subtle: rgba(255, 42, 95, 0.08);
+  --accent-cyber-border: rgba(255, 42, 95, 0.35);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background-color: #0b0e14 !important;
+  color: #8b949e;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #0b0e14;
+}
+
+/* 1. Global Tabular Figures for All Numerical Blocks, Odds & Stats */
+.tabular-nums,
+[data-numeric="true"],
+.font-mono,
+table td,
+table th,
+input[type="number"],
+input[type="text"].font-mono {
+  font-variant-numeric: tabular-nums !important;
+  font-feature-settings: "tnum" 1, "zero" 1 !important;
+}
+
+/* 2. Cyber-Fintech Deep Dark Background Canvas */
+.cr7-cinematic-bg {
+  position: relative;
+  background-color: #0b0e14;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease;
+}
+
+.cr7-cinematic-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: var(--wallpaper-bg, url('/CR7wallpaper.jpg'));
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  opacity: var(--wallpaper-opacity, 0.18);
+  filter: brightness(0.6) contrast(1.2) grayscale(0.35) blur(var(--wallpaper-blur, 0px));
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+
+.cr7-cinematic-bg::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 10%, rgba(11, 14, 20, 0.4) 0%, rgba(11, 14, 20, 0.94) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 3. Cyber-Fintech Cards: Clean 1px Border, 8px Radius, #161b22 Surface */
+.neon-running-card,
+.cyber-card {
+  position: relative;
+  border-radius: 8px !important;
+  overflow: hidden;
+  background-color: #161b22 !important;
+  border: 1px solid #30363d !important;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.5) !important;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.neon-running-card:hover,
+.cyber-card:hover {
+  border-color: var(--accent-cyber-border, rgba(0, 255, 102, 0.35)) !important;
+  box-shadow: 0 6px 20px -2px rgba(0, 0, 0, 0.7), 0 0 14px var(--accent-cyber-glow, rgba(0, 255, 102, 0.15)) !important;
+}
+
+.neon-running-card > .neon-card-inner,
+.cyber-card-inner {
+  position: relative;
+  z-index: 1;
+  background-color: #161b22 !important;
+  border-radius: 7px;
+  height: 100%;
+}
+
+/* Standardize all rounded-2xl/3xl inside data dashboards to modern 8px radius */
+.cyber-rounded {
+  border-radius: 8px !important;
+}
+
+/* 4. Subtle Tactical Grid Watermark */
+.tactical-field-watermark {
+  position: relative;
+}
+
+.tactical-field-watermark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, transparent 28px, rgba(0, 255, 102, 0.015) 29px, rgba(0, 255, 102, 0.015) 30px, transparent 31px),
+    linear-gradient(to bottom, transparent calc(50% - 0.5px), rgba(255, 255, 255, 0.01) calc(50% - 0.5px), rgba(255, 255, 255, 0.01) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 5. Alternating Horizontal Data Rows for High Legibility */
+table tbody tr:nth-child(even),
+.cyber-table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.018) !important;
+}
+
+table tbody tr:nth-child(odd),
+.cyber-table tbody tr:nth-child(odd) {
+  background-color: transparent !important;
+}
+
+table tbody tr:hover,
+.cyber-table tbody tr:hover {
+  background-color: var(--accent-cyber-subtle, rgba(0, 255, 102, 0.035)) !important;
+}
+
+/* Clear Visual Hierarchy: Final numbers have heavier weight than descriptive labels */
+.stat-val,
+.metric-num,
+.odds-num {
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+.stat-label,
+.metric-lbl {
+  font-weight: 500 !important;
+  color: #8b949e !important;
+}
+
+/* 6. Cyber Pulse for +EV & Live Metrics */
+@keyframes cyberNeonPulse {
+  0%, 100% {
+    box-shadow: 0 0 6px var(--accent-cyber-glow, rgba(0, 255, 102, 0.2));
+    border-color: var(--accent-cyber-border, rgba(0, 255, 102, 0.4));
+  }
+  50% {
+    box-shadow: 0 0 14px var(--accent-cyber-glow, rgba(0, 255, 102, 0.38));
+    border-color: var(--accent-cyber, #00ff66);
+  }
+}
+
+.value-bet-glow,
+.cyber-glow {
+  animation: cyberNeonPulse 2.4s infinite ease-in-out;
+}
+
+/* 7. Glassmorphism Navigation (Isolated to top bar & floating menus) */
+.cyber-glass-nav {
+  background-color: rgba(11, 14, 20, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid #30363d !important;
+}
+
+.cyber-glass-dropdown {
+  background-color: rgba(22, 27, 34, 0.96) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid #30363d !important;
+  border-radius: 8px !important;
+}
+
+/* 8. Global Form Controls (Inputs, Selects) in Cyber-Fintech Styling */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+  border-radius: 6px !important;
+  border: 1px solid #30363d;
+  background-color: #161b22;
+  color: #ffffff;
+  font-size: 0.8125rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: var(--accent-cyber, #00ff66) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 1px var(--accent-cyber, #00ff66) !important;
+}
+
+/* 9. Scrollbars in Dark Fintech Style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0e14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b949e;
+}

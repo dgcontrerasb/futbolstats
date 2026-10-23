@@ -1,0 +1,6 @@
+{
+  "name": "SportStats Pro - Probabilistic Sports Analytics",
+  "description": "Plataforma de análisis probabilístico avanzado multideporte (Fútbol & NBA) con modelo Dixon-Coles bivariado, cálculo de xG, árbitros, fatiga y caché inteligente.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

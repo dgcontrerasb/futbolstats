@@ -1,0 +1,31 @@
+# Dependencias
+node_modules/
+
+# Entornos y secretos
+.env
+.env.*
+!.env.example
+
+# Compilación y empaquetado (Vite / PWA)
+dist/
+dist-ssr/
+dev-dist/
+*.local
+
+# Caché y persistencia del servidor SportStats Pro
+.cache/
+api_football_cache.json
+sportstats_users_db.json
+
+# Registros y logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Configuraciones locales de editores y SO
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
